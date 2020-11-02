@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DevFestAngola">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.pages.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.DevFestAngola.NoActionBar">
             <intent-filter>
