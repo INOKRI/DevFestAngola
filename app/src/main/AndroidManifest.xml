@@ -11,9 +11,14 @@
         android:roundIcon="@mipmap/app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.DevFestAngola">
+
         <activity
-            android:name=".ui.pages.MainActivity"
+            android:name=".ui.pages.main.MainActivity"
             android:label="@string/app_name"
+            android:theme="@style/Theme.DevFestAngola.NoActionBar" />
+
+        <activity
+            android:name=".ui.pages.SplashActivity"
             android:theme="@style/Theme.DevFestAngola.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
