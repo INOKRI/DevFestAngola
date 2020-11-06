@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "720870387974",
+    "firebase_url": "https://devfestangola.firebaseio.com",
+    "project_id": "devfestangola",
+    "storage_bucket": "devfestangola.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720870387974:android:317d38162e07d12ace6e87",
+        "android_client_info": {
+          "package_name": "ao.inokri.devfestangola"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720870387974-aha24sam86pajspuj1um0i6d6idj7qlb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPNgtGTHtpzYGB2ogiR0Zbphi1y5FY80c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720870387974-aha24sam86pajspuj1um0i6d6idj7qlb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
