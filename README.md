@@ -6,6 +6,7 @@ Description: this is an application that consumes data from the Firebase databas
 Feel free to suggest new features, to make this project much more complete.
 
 **Done**
+- [x] Connect project with firebase database
 - [x] MVVM Architecture pattern
 - [x] Kotlinx-Coroutines
 - [x] Jectpack Navigation Androidx
