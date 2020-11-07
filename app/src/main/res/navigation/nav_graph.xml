@@ -9,7 +9,7 @@
         android:id="@+id/eventsFragment"
         android:name="ao.inokri.devfestangola.ui.pages.main.event.EventsFragment"
         android:label="@string/events_label"
-        tools:layout="@layout/fragment_events">
+        tools:layout="@layout/fragment_root">
         <action
             android:id="@+id/actionEventsToEventDetails"
             app:destination="@id/eventDetailsFragment" />
@@ -42,7 +42,7 @@
         android:id="@+id/agendaFragment"
         android:name="ao.inokri.devfestangola.ui.pages.main.event.details.agenda.AgendaFragment"
         android:label="Agenda"
-        tools:layout="@layout/fragment_agenda">
+        tools:layout="@layout/fragment_root">
 
         <action
             android:id="@+id/actionAgendaToEventDetails"
@@ -53,7 +53,7 @@
         android:id="@+id/speakersFragment"
         android:name="ao.inokri.devfestangola.ui.pages.main.event.details.speakers.SpeakersFragment"
         android:label="Speakers"
-        tools:layout="@layout/fragment_speakers">
+        tools:layout="@layout/fragment_root">
         <action
             android:id="@+id/actionSpeakersToEventDetails"
             app:destination="@id/eventDetailsFragment" />
@@ -76,7 +76,7 @@
         android:id="@+id/sponsorsFragment"
         android:name="ao.inokri.devfestangola.ui.pages.main.event.details.sponsors.SponsorsFragment"
         android:label="Sponsors"
-        tools:layout="@layout/fragment_sponsors">
+        tools:layout="@layout/fragment_root">
         <action
             android:id="@+id/actionSponsorsToEventDetails"
             app:destination="@id/eventDetailsFragment" />
