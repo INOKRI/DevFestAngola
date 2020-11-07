@@ -11,7 +11,7 @@ import ao.inokri.devfestangola.data.models.EventModel
 import com.bumptech.glide.Glide
 
 class EventAdapter(
-    private val iVent: IVent
+        private val iVent: IVent
 ) : RecyclerView.Adapter<EventAdapter.EventHolder>() {
 
     private var events: MutableList<EventModel> = mutableListOf()
@@ -20,7 +20,7 @@ class EventAdapter(
         private val imageHolder: AppCompatImageView = itemView.findViewById(R.id.imageEvent)
         private val titleHolder: AppCompatTextView = itemView.findViewById(R.id.titleEvent)
         private val descriptionHolder: AppCompatTextView = itemView.findViewById(
-            R.id.descriptionEvent
+                R.id.descriptionEvent
         )
         private val dateStartHolder: AppCompatTextView = itemView.findViewById(R.id.dateStartEvent)
         private val dateEndEHolder: AppCompatTextView = itemView.findViewById(R.id.dateEndEvent)
@@ -36,9 +36,9 @@ class EventAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventHolder {
         val inflater = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_event,
-            parent,
-            false
+                R.layout.item_event,
+                parent,
+                false
         )
         return EventHolder(inflater)
     }
@@ -50,9 +50,7 @@ class EventAdapter(
         }
     }
 
-    override fun getItemCount(): Int {
-        return events.count()
-    }
+    override fun getItemCount(): Int = events.count()
 
     fun addAll(responseEvents: MutableList<EventModel>) {
         events = responseEvents

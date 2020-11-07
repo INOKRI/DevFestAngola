@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import ao.inokri.devfestangola.R
+import ao.inokri.devfestangola.data.repository.Repository
 import ao.inokri.devfestangola.data.viewmodels.SplashViewModel
 import ao.inokri.devfestangola.data.viewmodelsfactory.ViewModelFactory
 import ao.inokri.devfestangola.ui.pages.main.MainActivity
@@ -21,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         splashViewModel = ViewModelProvider(
-            this, ViewModelFactory()
+            this, ViewModelFactory(Repository())
         )[SplashViewModel::class.java]
     }
 

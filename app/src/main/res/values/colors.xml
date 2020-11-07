@@ -4,9 +4,16 @@
     <color name="dev_fest_lt_blue">#4285f4</color>
     <color name="dev_fest_blue">#0005df</color>
     <color name="dev_fest_grey">#f8f9fa</color>
+    <color name="dev_fest_grey1">#364285F4</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="black_transparent">#9E000000</color>
+
+    <color name="colorAmber">#FFC107</color>
+    <color name="colorRed">#F44336</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="colorBlue">#2196F3</color>
+    <color name="colorDark">#FF1f2124</color>
 </resources>

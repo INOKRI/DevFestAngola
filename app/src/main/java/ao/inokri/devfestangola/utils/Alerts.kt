@@ -3,8 +3,8 @@ package ao.inokri.devfestangola.utils
 import android.content.Context
 import android.widget.Toast
 
-fun Context.toast(message: String) = Toast.makeText(
-    this,
+fun toast(message: String, context: Context) = Toast.makeText(
+    context,
     message,
     Toast.LENGTH_SHORT
 ).show()

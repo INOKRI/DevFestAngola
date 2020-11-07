@@ -3,26 +3,93 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/eventsFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="ao.inokri.devfestangola.ui.pages.event.EventsFragment"
-        android:label="@string/first_fragment_label"
+        android:id="@+id/eventsFragment"
+        android:name="ao.inokri.devfestangola.ui.pages.main.event.EventsFragment"
+        android:label="@string/events_label"
         tools:layout="@layout/fragment_events">
-
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/actionEventsToEventDetails"
+            app:destination="@id/eventDetailsFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="ao.inokri.devfestangola.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/eventDetailsFragment"
+        android:name="ao.inokri.devfestangola.ui.pages.main.event.details.EventDetailsFragment"
+        android:label="Details Events"
+        app:startDestination="@id/actionEventDetailsToSponsors"
+        tools:layout="@layout/fragment_events_details">
+        <action
+            android:id="@+id/actionEventDetailsToEvents"
+            app:destination="@id/eventsFragment" />
+        <action
+            android:id="@+id/actionEventDetailsToAgenda"
+            app:destination="@id/agendaFragment" />
+        <action
+            android:id="@+id/actionEventDetailsToSpeakers"
+            app:destination="@id/speakersFragment" />
+        <action
+            android:id="@+id/actionEventDetailsToTeam"
+            app:destination="@id/teamFragment" />
+        <action
+            android:id="@+id/actionEventDetailsToSponsors"
+            app:destination="@id/sponsorsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/agendaFragment"
+        android:name="ao.inokri.devfestangola.ui.pages.main.event.details.agenda.AgendaFragment"
+        android:label="Agenda"
+        tools:layout="@layout/fragment_agenda">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/actionAgendaToEventDetails"
+            app:destination="@id/eventDetailsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/speakersFragment"
+        android:name="ao.inokri.devfestangola.ui.pages.main.event.details.speakers.SpeakersFragment"
+        android:label="Speakers"
+        tools:layout="@layout/fragment_speakers">
+        <action
+            android:id="@+id/actionSpeakersToEventDetails"
+            app:destination="@id/eventDetailsFragment" />
+        <action
+            android:id="@+id/actionSpeakersToSpeakersDetails"
+            app:destination="@id/speakersDetails" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="ao.inokri.devfestangola.ui.pages.main.event.details.team.TeamFragment"
+        android:label="Team"
+        tools:layout="@layout/fragment_team">
+        <action
+            android:id="@+id/actionTeamToEventDetails"
+            app:destination="@id/eventDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sponsorsFragment"
+        android:name="ao.inokri.devfestangola.ui.pages.main.event.details.sponsors.SponsorsFragment"
+        android:label="Sponsors"
+        tools:layout="@layout/fragment_sponsors">
+        <action
+            android:id="@+id/actionSponsorsToEventDetails"
+            app:destination="@id/eventDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/speakersDetails"
+        android:name="ao.inokri.devfestangola.ui.pages.main.event.details.speakers.details.SpeakersDetails"
+        android:label="Speaker Details"
+        tools:layout="@layout/fragment_speakers_details">
+        <action
+            android:id="@+id/actionAgendaDetailsToSpeakers"
+            app:destination="@id/speakersFragment" />
+    </fragment>
+
 </navigation>

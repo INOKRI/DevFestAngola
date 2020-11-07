@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/dev_fest_grey"
     android:orientation="vertical"
-    tools:context=".ui.pages.MainActivity">
+    tools:context=".ui.pages.main.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <fragment
-        android:id="@+id/nav_host_fragment"
+        android:id="@+id/navHostFragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

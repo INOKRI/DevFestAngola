@@ -3,18 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pages.event.EventsFragment">
+    tools:context=".ui.pages.main.event.EventsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerEvents"
+        android:id="@+id/recyclerRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <ProgressBar
-        android:visibility="gone"
-        android:id="@+id/progressEvent"
+        android:id="@+id/progressRoot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtStateRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/ubuntu_bold"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
 
 </RelativeLayout>
