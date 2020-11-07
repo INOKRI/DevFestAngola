@@ -32,8 +32,6 @@ class EventsFragment : Fragment() {
     private lateinit var recycler: RecyclerView
     private lateinit var progress: ProgressBar
     private lateinit var txtState: AppCompatTextView
-    private lateinit var searchView: SearchView
-    private lateinit var queryTextListener: SearchView.OnQueryTextListener
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -66,41 +64,8 @@ class EventsFragment : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.event_menu, menu)
-
-        val searchItem = menu.findItem(R.id.searchEvents)
-        val searchManager =
-                requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
-
-        if (searchItem != null) {
-            searchView = searchItem.actionView as SearchView
-        }
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().componentName))
-        queryTextListener = object : SearchView.OnQueryTextListener {
-            override fun onQueryTextChange(newText: String): Boolean {
-                when {
-                    TextUtils.isEmpty(newText) -> {
-                        requestEvent(recycler)
-                    }
-                }
-                return true
-            }
-
-            override fun onQueryTextSubmit(query: String): Boolean {
-                when {
-                    TextUtils.isEmpty(query) -> {
-                        requestEvent(recycler)
-                    }
-                    else -> {
-                        searchEvents(query)
-                        searchView.clearFocus()
-                    }
-                }
-                return true
-            }
-        }
-        searchView.setOnQueryTextListener(queryTextListener)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     @SuppressLint("SetTextI18n")
@@ -146,46 +111,4 @@ class EventsFragment : Fragment() {
         })
     }
 
-    private fun searchEvents(query: String) {
-        eventAdapter = EventAdapter(iVent = object : EventAdapter.IVent {
-            override fun onClick(eventModel: EventModel) {
-                toast(eventModel.title.toString(), requireContext())
-                val bundle = Bundle().also {
-                    it.putString("image", eventModel.image)
-                    it.putString("title", eventModel.title)
-                    it.putString("description", eventModel.description)
-                }
-                findNavController().navigate(R.id.actionEventsToEventDetails, bundle)
-            }
-        })
-
-        eventsViewModel.getSearchEvents("Events", query) { status ->
-            when (status) {
-                Status.ERROR -> {
-                    progress.gone()
-                    txtState.visible()
-                    txtState.text = "Error to load Events..."
-                }
-                Status.LOADING -> {
-                    progress.visible()
-                    txtState.gone()
-                }
-                Status.SUCCESS -> {
-                    progress.gone()
-                    txtState.gone()
-                }
-            }
-        }.observe(viewLifecycleOwner, {
-            when {
-                it.isNotEmpty() -> {
-                    eventAdapter.addAll(it)
-                    recycler.adapter = eventAdapter
-                }
-                else -> {
-                    txtState.visible()
-                    txtState.text = "List events empty."
-                }
-            }
-        })
-    }
 }

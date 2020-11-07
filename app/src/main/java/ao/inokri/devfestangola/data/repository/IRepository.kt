@@ -5,6 +5,6 @@ import com.google.firebase.firestore.QuerySnapshot
 
 interface IRepository {
 
-    suspend fun getData(path: String, querySearch: String): Task<QuerySnapshot>
+    suspend fun getData(path: String): Task<QuerySnapshot>
 
 }

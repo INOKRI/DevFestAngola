@@ -19,7 +19,7 @@ class SpeakerViewModel(private var repository: Repository) : ViewModel() {
         speaker = mutableListOf()
         viewModelScope.launch(Dispatchers.IO) {
             callback(Status.LOADING)
-            repository.getData(path, "").addOnSuccessListener {
+            repository.getData(path).addOnSuccessListener {
                 callback(Status.SUCCESS)
                 it.documents.forEach { response ->
                     speaker.add(response.toObject(AgendaModel::class.java)!!)

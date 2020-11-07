@@ -10,10 +10,7 @@ class Repository : IRepository {
         FirebaseFirestore.getInstance()
     }
 
-    override suspend fun getData(path: String, querySearch: String): Task<QuerySnapshot> {
-        return if (querySearch.isEmpty())
-            firestore.collection(path).get()
-        else
-            firestore.collection(path).whereEqualTo("title", querySearch).get()
+    override suspend fun getData(path: String): Task<QuerySnapshot> {
+        return firestore.collection(path).get()
     }
 }

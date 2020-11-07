@@ -19,25 +19,7 @@ class EventsViewModel(private var repository: Repository) : ViewModel() {
         events = mutableListOf()
         viewModelScope.launch(Dispatchers.IO) {
             callback(Status.LOADING)
-            repository.getData(path, "").addOnSuccessListener {
-                callback(Status.SUCCESS)
-                it.documents.forEach { response ->
-                    events.add(response.toObject(EventModel::class.java)!!)
-                }
-                eventsLiveData.value = events
-
-            }.addOnFailureListener {
-                callback(Status.ERROR)
-            }
-        }
-        return eventsLiveData
-    }
-
-    fun getSearchEvents(path: String, querySearch: String, callback: (status: Status) -> Unit): LiveData<MutableList<EventModel>> {
-        events = mutableListOf()
-        viewModelScope.launch(Dispatchers.Default) {
-            callback(Status.LOADING)
-            repository.getData(path, querySearch).addOnSuccessListener {
+            repository.getData(path).addOnSuccessListener {
                 callback(Status.SUCCESS)
                 it.documents.forEach { response ->
                     events.add(response.toObject(EventModel::class.java)!!)

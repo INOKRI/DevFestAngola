@@ -19,7 +19,7 @@ class AgendaViewModel(private var repository: Repository) : ViewModel() {
         agenda = mutableListOf()
         viewModelScope.launch(Dispatchers.IO) {
             callback(Status.LOADING)
-            repository.getData(path, "").addOnSuccessListener {
+            repository.getData(path).addOnSuccessListener {
                 callback(Status.SUCCESS)
                 it.documents.forEach { response ->
                     agenda.add(response.toObject(AgendaModel::class.java)!!)

@@ -20,7 +20,7 @@ class SponsorViewModel(private var repository: Repository) : ViewModel() {
         sponsor = mutableListOf()
         viewModelScope.launch(Dispatchers.IO) {
             callback(Status.LOADING)
-            repository.getData(path, "").addOnSuccessListener {
+            repository.getData(path).addOnSuccessListener {
                 callback(Status.SUCCESS)
                 it.documents.forEach { response ->
                     sponsor.add(response.toObject(SponsorsModel::class.java)!!)
